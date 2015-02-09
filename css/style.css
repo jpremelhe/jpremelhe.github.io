@@ -307,7 +307,6 @@ height: 80%;
 
 /* scroll fixes */
 .modal-dialog {
-	top: 50%;
 	width: 90%;
 	height: 50%;
 }
@@ -1042,12 +1041,16 @@ label.dot{
 	color:#fff;
 	margin:0;
 }
+#menume:hover{
+background-color: rgb(190, 215, 249);
+}
 /*----*/
 .footer{
 	background: #202628;
 	position: fixed;
 	bottom:0;
 	width:100%;
+	z-index: 1000;
 }
 .footer p{
 	margin:1em 0;
