@@ -1,0 +1,559 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Remelhe Matters</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/dataTables.booststrap.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.js"></script>
+<script src="js/bootstrap-tabcollapse.js"></script>
+
+<script src="galleria/galleria-1.4.2.min.js"></script>
+
+   <script type="text/javascript"
+           src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<style>
+    #carousel-generico{
+    background-image: url('images/loja2.jpg');
+}
+</style>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+					function fadeItOut(){
+						$('#fader').fadeOut(2000);
+					}
+					function fadeItOutFast(){
+						$('#fader').fadeOut('slow');
+					}
+					function fadeItIn(){
+						$('#fader').fadeTo( "slow" , 0.5, function() {
+    // Animation complete.
+  });
+					}
+					jQuery(document).ready(function($) {
+							var imglist = [];
+							var carou = $('#carousel-generico');
+							imgs = $('.carousel-inner').find('img').each(function(){
+
+							});
+							$.each(imgs, function( key, value ) {
+								console.log($(value).attr('src'));
+							  imglist.push($(value).attr('src'));
+							});
+							console.log(imglist);
+							var i=0;
+
+							setInterval(function(){
+									console.log('cai');
+					                carou.css({ 'background-image': 'url("'+imglist[i]+'")' });
+					                i++;
+					                if(i == imglist.length){
+					                	i = 0;
+					                }
+
+							}, 5000);
+
+							$('#lista_servicos').tabCollapse();
+							// Cache selectors
+							var lastId,
+							    topMenu = $(".top-nav"),
+							    topMenuHeight = topMenu.outerHeight()+100,
+							    // All list items
+							    menuItems = topMenu.find("a"),
+							    // Anchors corresponding to menu items
+							    scrollItems = menuItems.map(function(){
+							      var item = $($(this).attr("href"));
+							      if (item.length) { return item; }
+							    });
+
+							// Bind click handler to menu items
+							// so we can get a fancy scroll animation
+							menuItems.click(function(e){
+							  var href = $(this).attr("href"),
+							      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+							  $('html, body').stop().animate({
+							      scrollTop: offsetTop
+							  }, 300);
+							  e.preventDefault();
+							});
+
+							// Bind to scroll
+							$(window).scroll(function(){
+							   // Get container scroll position
+							   var fromTop = $(this).scrollTop()+topMenuHeight;
+
+							   // Get id of current scroll item
+							   var cur = scrollItems.map(function(){
+							     if ($(this).offset().top < fromTop)
+							       return this;
+							   });
+							   // Get the id of the current element
+							   cur = cur[cur.length-1];
+							   var id = cur && cur.length ? cur[0].id : "";
+
+							   if (lastId !== id) {
+							       lastId = id;
+							       // Set/remove active class
+							       menuItems
+							         .parent().removeClass("active")
+							         .end().filter("[href=#"+id+"]").parent().addClass("active");
+							   }
+							});
+
+						$(".scroll").click(function(event){
+							event.preventDefault();
+							fadeItIn();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top-70},1000);
+							fadeItOutFast();
+
+						});
+
+						$('#sobrenos > .container').css('min-height', ($( window ).height()-70)+'px');
+						$('#portfolio').css('min-height', ($( window ).height()-70)+'px');
+						$('#servicos').css('min-height', ($( window ).height()-70)+'px');
+						$('#orcamento').css('min-height', ($( window ).height()-70)+'px');
+						$('#contactos').css('min-height', ($( window ).height()-70)+'px');
+						fadeItOut();
+					});
+
+					</script>
+					<!----start-top-nav-script---->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('.top-nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+
+</head>
+<body>
+<div id="fader"></div>
+<!--header-->
+	<div class="header">
+			<div class="container">
+				<div class="logo">
+					<a href="index.html">
+						<img height="67px" src="images/matters.png" />
+					</a>
+				</div>
+				<div class="top-nav">
+
+					<ul>
+						<li class="active" ><a href="#home" class="scroll">Apresentação</a></li>
+						<li><a href="#servicos" class="scroll"> Produtos</a></li>
+						<li><a href="#orcamento" class="scroll">Orçamentos</a></li>
+						<li><a href="#contactos" class="scroll">Contactos</a></li>
+					</ul>
+					<a href="#" id="pull"><img src="images/menu.png" title="menu" /></a>
+				</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	</div>
+	<!--content-->
+	<div class="content">
+	<!--about-->
+		<div class="home" id="home">
+	<div id="sobrenos">
+	<div class="container">
+<div id="carousel-generico" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+      <div class="carousel-caption">
+
+        <h2>Quem Somos</h2>
+			<p>A Remelhe Matters especializa-se na venda de todo o tipo de materiais de construção e drogaria. Para que nunca lhe falte nada.</p>
+        <h2>As mais diversas marcas</h2>
+        <div style="margin:20px">
+                            <div class="row" style="overflow: auto">
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div   class="thumbnail">
+                                  <img src="http://portugueseindependentnews.com/wp-content/uploads/2013/05/Cimpor-905x500.png" alt="...">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div  class="thumbnail">
+                                  <img src="http://www.royalceramic.com/wp-content/uploads/2014/03/mapei_logo462743.jpg" alt="...">
+                                </div>
+                              </div>
+                                                            <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div   class="thumbnail">
+                                  <img src="http://portugueseindependentnews.com/wp-content/uploads/2013/05/Cimpor-905x500.png" alt="...">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div  class="thumbnail">
+                                  <img src="http://www.royalceramic.com/wp-content/uploads/2014/03/mapei_logo462743.jpg" alt="...">
+                                </div>
+                              </div>
+                                                            <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div   class="thumbnail">
+                                  <img src="http://portugueseindependentnews.com/wp-content/uploads/2013/05/Cimpor-905x500.png" alt="...">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div  class="thumbnail">
+                                  <img src="http://www.royalceramic.com/wp-content/uploads/2014/03/mapei_logo462743.jpg" alt="...">
+                                </div>
+                              </div>
+                                                            <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div   class="thumbnail">
+                                  <img src="http://portugueseindependentnews.com/wp-content/uploads/2013/05/Cimpor-905x500.png" alt="...">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div  class="thumbnail">
+                                  <img src="http://www.royalceramic.com/wp-content/uploads/2014/03/mapei_logo462743.jpg" alt="...">
+                                </div>
+                              </div>
+                                                            <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div   class="thumbnail">
+                                  <img src="http://portugueseindependentnews.com/wp-content/uploads/2013/05/Cimpor-905x500.png" alt="...">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div  class="thumbnail">
+                                  <img src="http://www.royalceramic.com/wp-content/uploads/2014/03/mapei_logo462743.jpg" alt="...">
+                                </div>
+                              </div>
+                                                            <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div   class="thumbnail">
+                                  <img src="http://portugueseindependentnews.com/wp-content/uploads/2013/05/Cimpor-905x500.png" alt="...">
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-xs-3 col-md-2">
+                                <div  class="thumbnail">
+                                  <img src="http://www.royalceramic.com/wp-content/uploads/2014/03/mapei_logo462743.jpg" alt="...">
+                                </div>
+                              </div>
+                            </div>
+        </div>
+      </div>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img style="display: none;" src="images/loja1.jpg" alt="...">
+    </div>
+    <div class="item">
+      <img style="display: none;" src="images/loja2.jpg" alt="...">
+    </div>
+    <div class="item">
+      <img style="display: none;" src="images/loja1.jpg" alt="...">
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+		<!--div class="hello" id="hello">
+			<span class="arrow"> </span>
+			<h3>Quem <span>Somos</span></h3>
+
+		</div>
+		</div>
+
+		</div-->
+	<!--services-->
+		<div class="services scrollpoint produtos" id="servicos">
+			<div class="container">
+				<div class="services-top">
+					<h3>P<span>RODUTO</span>S</h3>
+					<p>Dispomos de diversos tipos de produtos, das mais conceituadas marcas.</p>
+				</div>
+				<div class="services-bottom">
+					<div role="tabpanel" class="tabs-left">
+
+					  <!-- Nav tabs -->
+					  <ul id="lista_servicos" class="nav nav-tabs " role="tablist">
+					    <li role="presentation" class="active"><a href="#ccivil" aria-controls="ccivil" role="tab" data-toggle="tab">Soluções para construção</a></li>
+					    <li role="presentation"><a href="#maq" aria-controls="maq" role="tab" data-toggle="tab">Máquinas e Ferramentas</a></li>
+					    <li role="presentation"><a href="#recuperadores" aria-controls="recuperadores" role="tab" data-toggle="tab">Recuperadores</a></li>
+					    <li role="presentation"><a href="#bricolage" aria-controls="bricolage" role="tab" data-toggle="tab">Bricolage e Jardim</a></li>
+					    <li role="presentation"><a href="#cimento" aria-controls="cimento" role="tab" data-toggle="tab">Cimento e Betumação</a></li>
+                        <li role="presentation"><a href="#cobertas" aria-controls="cobertas" role="tab" data-toggle="tab">Cobertas e Acessórios</a></li>
+                        <li role="presentation"><a href="#isolamento" aria-controls="isolamento" role="tab" data-toggle="tab">Isolamentos</a></li>
+                        <li role="presentation"><a href="#pavimento" aria-controls="pavimento" role="tab" data-toggle="tab">Pavimentos</a></li>
+                        <li role="presentation"><a href="#preesforco" aria-controls="preesforco" role="tab" data-toggle="tab">Pré-Esforçados</a></li>
+                        <li role="presentation"><a href="#arga" aria-controls="arga" role="tab" data-toggle="tab">Argamassas</a></li>
+                        <li role="presentation"><a href="#tijolo" aria-controls="tijolo" role="tab" data-toggle="tab">Tijolo e Ferro</a></li>
+                        <li role="presentation"><a href="#tintas" aria-controls="tintas" role="tab" data-toggle="tab">Tintas e Vernizes</a></li>
+                        <li role="presentation"><a href="#gesso" aria-controls="gesso" role="tab" data-toggle="tab">Placas de Gesso</a></li>
+
+					  </ul>
+
+					  <!-- Tab panes -->
+					  <div class="tab-content produtoscontent">
+					    <div role="tabpanel" class="tab-pane active" id="ccivil">
+					    	<div class="row" style="overflow: auto">
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Impermeabilizações</h3>
+                                    <p>  Mapelastic</p>
+                                    <p>Mapelastic Smart</p>
+
+                                    <p>Mapelastic Foundation</p>
+
+                                    <p>Idrosilex Pronto</p>
+
+                                    <p>Plastimul</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Pavimentos</h3>
+                                    <p> Realização de Betonilhas e Autonivelantes</p>
+                                    <p>Ultraplan MAXI</p><p>Ultraplan Eco</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Pavimentos</h3>
+                                    <p> Realização de Betonilhas e Autonivelantes</p>
+                                    <p>Ultraplan MAXI</p><p>Ultraplan Eco</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Impermeabilizações</h3>
+                                    <p>  Mapelastic</p>
+                                    <p>Mapelastic Smart</p>
+
+                                    <p>Mapelastic Foundation</p>
+
+                                    <p>Idrosilex Pronto</p>
+
+                                    <p>Plastimul</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Pavimentos</h3>
+                                    <p> Realização de Betonilhas e Autonivelantes</p>
+                                    <p>Ultraplan MAXI</p><p>Ultraplan Eco</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Pavimentos</h3>
+                                    <p> Realização de Betonilhas e Autonivelantes</p>
+                                    <p>Ultraplan MAXI</p><p>Ultraplan Eco</p>
+                                  </div>
+                                </div>
+                              </div>
+                                                        <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Impermeabilizações</h3>
+                                    <p>  Mapelastic</p>
+                                    <p>Mapelastic Smart</p>
+
+                                    <p>Mapelastic Foundation</p>
+
+                                    <p>Idrosilex Pronto</p>
+
+                                    <p>Plastimul</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Pavimentos</h3>
+                                    <p> Realização de Betonilhas e Autonivelantes</p>
+                                    <p>Ultraplan MAXI</p><p>Ultraplan Eco</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail">
+                                  <img style="height: 150px;" src="http://www.mapei.com/public/GB/products/ultraplan%20renovation%20screed.jpg" alt="...">
+                                  <div class="caption">
+                                    <h3>Pavimentos</h3>
+                                    <p> Realização de Betonilhas e Autonivelantes</p>
+                                    <p>Ultraplan MAXI</p><p>Ultraplan Eco</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="maq">geo</div>
+					    <div role="tabpanel" class="tab-pane" id="recuperadores">tvia</div>
+					    <div role="tabpanel" class="tab-pane" id="bricolage">desma</div>
+					    <div role="tabpanel" class="tab-pane" id="cimento">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="cobertas">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="isolamento">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="pavimento">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="preesforco">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="arga">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="tijolo">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="tintas">partic</div>
+                        <div role="tabpanel" class="tab-pane" id="gesso">partic</div>
+					  </div>
+
+					</div>
+					<div class='clearfix'></div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!---->
+		</div>
+		<div class="orcamento scrollpoint" id="orcamento">
+			<div class="container">
+				<center><h2>P<span>EDIR ORÇAMENTO</span>S</h2>
+						<iframe id="hiddenFrame" name="hiddenFrame" class="hide"></iframe>
+
+						<div style="float:inherit" class="col-sm-7">
+						<form id="cform" action="https://fwdform.herokuapp.com/user/d3c3c43c-e4e8-4cdd-b679-cd292beab030" method="POST" target="hiddenFrame">
+							<div class="row">
+							<div class="col-xs-6 col-md-6 form-group">
+							<input class="form-control" id="name" name="name" placeholder="Nome" type="text" required />
+							</div>
+							<div class="col-xs-6 col-md-6 form-group">
+							<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+							</div>
+							</div>
+							<textarea class="form-control" id="message" name="message" placeholder="Descrição do serviço a realizar" rows="7"></textarea>
+							<br />
+							<div class="row">
+							<div class="col-xs-12 col-md-12 form-group">
+							<button class="btn orcamentobtn pull-right" type="submit" onclick="warnit();">Pedir Orçamento</button>
+							</div>
+							</div>
+						</form>
+					</div>
+				</center>
+				<script type="text/javascript">
+				function warnit(){
+						setTimeout(function() {
+							var success = "Your message was sent successfully";
+							var ind = $('#hiddenFrame').text().indexOf('success');
+							if(ind != -1){
+								alert('Desde já agradecemos o seu contacto. Analizaremos o seu pedido, e assim que possivel entraremos em contacto consigo.');
+							}
+						}, 3000);
+				}
+				</script>
+		</div>
+		</div>
+			<!-- contact -->
+			<div class="contactos scrollpoint" id="contactos">
+				<div class="container">
+				<center>
+				<h2>C<span>ONTACTO</span>S</h2>
+					<div class="container">
+					<div class="row">
+					<div class="col-sm-6">
+					<h3>Para mais informações, contacte-nos diretamente.</h3>
+					<hr>
+					<address style="text-align:justify;">
+					Igrª. - Campo - Casal<br />
+						4750-367 Campo BCL Portugal<br />
+					<strong>GPS:</strong> +41° 35' 6.504", -8° 36' 26.931"
+					<br /><br />
+					<strong>Telefone:</strong> (+351)253 883 453<br />
+					<strong>Fax:</strong> (+351)253 883 453<br />
+					<strong>Email:</strong> <a href="mailto:vitor@jpremelhe.com">vitor@jpremelhe.com</a><br><br>
+					</address>
+					</div>
+
+					<div class="col-sm-6 contact-form">
+					<div style="background-color: grey; width: 100%; height:300px;" id="map"/>
+					</div>
+						<script type="text/javascript">
+					      var myOptions = {
+					         zoom: 18,
+					         center: new google.maps.LatLng(41.585140, -8.607481),
+					         mapTypeId: google.maps.MapTypeId.HYBRID
+					      };
+
+					      var map = new google.maps.Map(document.getElementById("map"), myOptions);
+						  var marker = new google.maps.Marker({
+						      position: new google.maps.LatLng(41.585140, -8.607481),
+						      map: map,
+						      title: 'J.P. Remelhe'
+						  });
+					   </script>
+					</div>
+				</center><br />
+				</div>
+			</div>
+	</div>
+	<!--footer-->
+	<div class="footer">
+		<div class="container">
+				<div class="footer-class">
+				<div class="class-footer">
+					 <p class="footer-grid">&copy; 2015 J.P. Remelhe </p>
+				</div>
+				<div class="clearfix"> </div>
+			 	</div>
+		 </div>
+
+	</div>
+
+</body>
+</html>

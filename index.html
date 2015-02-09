@@ -1,0 +1,97 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>JPRemelhe</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+   <script type="text/javascript"
+           src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+                    function fadeItOut(){
+                        $('#fader').fadeOut(2000);
+                    }
+                    function fadeItIn(){
+                        $('#fader').fadeTo( "slow" , 0.5, function() {
+    // Animation complete.
+  });
+                    }
+                    jQuery(document).ready(function($) {
+                        fadeItOut();
+                    });
+
+                    </script>
+                    <!----start-top-nav-script---->
+        <script>
+            $(function() {
+                var pull        = $('#pull');
+                    menu        = $('.top-nav ul');
+                    menuHeight  = menu.height();
+                $(pull).on('click', function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+                $(window).resize(function(){
+                    var w = $(window).width();
+                    if(w > 320 && menu.is(':hidden')) {
+                        menu.removeAttr('style');
+                    }
+                });
+            });
+        </script>
+
+</head>
+<body>
+<div id="fader"></div>
+<div id="splash">
+	<a href="main.html"><img src="images/filhos.png" /></a>
+	<a href="matter.html"><img src="images/matters.png" /></a>
+</div>
+	<div class="footer">
+		<div class="container">
+				<div class="footer-class">
+				<div class="class-footer">
+					 <p class="footer-grid">&copy; 2015 J.P. Remelhe </p>
+				</div>
+				<div class="clearfix"> </div>
+			 	</div>
+		 </div>
+		 <script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear'
+					 		};
+							*/
+
+							$().UItoTop({ easingType: 'easeOutQuart' });
+
+						});
+					</script>
+
+	</div>
+</body>
+</html>
