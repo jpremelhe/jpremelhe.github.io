@@ -5,12 +5,33 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 body{
-	background: url(../images/sand.jpg) 0px 0px;
-	background-width: 100%;
+	background-color: #272727;
+	background: url(../images/banner2.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	display:block;
 	padding:5em 0;	font-family: 'Fjalla One', sans-serif;
 	min-width: 360px;
 }
+body.override {
+	background: url(../images/fundos_loja/fundo.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.produtoscontent .tab-pane {
+	overflow: hidden;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.produtoscontent .tab-pane .logoimg {
+	max-width: 100%; max-height: 100px;
+}
+
 body a{
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -74,15 +95,35 @@ border-color: #FB401C;
 	background-color: white;
 	color: #274CA6;
 }
-.galleria, .galleria2{ width: 100%; height: 350px; background: #000 }
+.galleria, .galleria2{ width: 100%; height: 450px; background: #000 }
 
+.thumbnail img {
+	height: 50px;
+	width: auto;
+}
+
+#splash h1{
+	color: white;
+text-shadow: 0px -1px 17px black;
+font-weight: bold;
+font-size: 50px;
+}
+#splash h3{
+    width: 332px;
+	color: white;
+	text-shadow: 0px -1px 17px black;
+}
+#splash a h3:hover{
+	color: #FC431E;
+	text-shadow: 0px -1px 17px black;
+}
 #splash {
    position: absolute;
     top: 50%;
     left: 50%;
     height: 205px;
     width: 700px;
-    margin: -102px 0 0 -350px;
+    margin: -152px 0 0 -350px;
 }
 #splash img {
 	margin: 5px;
@@ -116,7 +157,6 @@ hiddenForm{
 	background-color: rgba(0, 0, 0, 0.68);
 }
  ul{
-	padding: 0;
 	margin: 0;
 }
 #fader {
@@ -161,7 +201,7 @@ color: white;
 }
 .imagem {
 	width: 300px;
-	height: 300px;
+	height: auto;
 }
 .produtos .tab-pane {
 	color: white;
@@ -179,7 +219,7 @@ color: white;
 }
 
 .produtoscontent .caption{
-	height: 200px;
+	height: 480px;
 	overflow: auto;
 }
 #carousel-generico{
@@ -272,7 +312,6 @@ height: 80%;
 }
 
 #home {
-	background: url(../images/sand.jpg) 0px 0px;
 	width: 100%;
 	display:block;
 	padding:5em 0;
