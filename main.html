@@ -49,6 +49,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--//fonts-->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/bootbox.min.js"></script>
+
 <script type="text/javascript">
 					function fadeItOut(){
 						$('#fader').fadeOut(2000);
@@ -61,6 +63,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     // Animation complete.
   });
 					}
+                    function disableOrcamento(){
+                        $('#cform').find('.form-control').prop('disabled', true);
+                    }
+                    function enableOrcamento(){
+                        $('#cform').find('.form-control').val('');
+                        $('#cform').find('.form-control').prop('disabled', false);
+                    }
 					jQuery(document).ready(function($) {
 							var imglist = [];
 							var carou = $('#carousel-generico');
@@ -623,27 +632,31 @@ Desta forma a sua Política de Qualidade, é assumida como parte integrante da p
 		<div class="orcamento scrollpoint" id="orcamento">
 			<div class="container">
 				<center><h2>P<span>EDIR ORÇAMENTO</span>S</h2>
-						<iframe id="hiddenFrame" name="hiddenFrame" class="hide"></iframe>
+            <iframe name="iframe_txlbrchf" id="iframe_txlbrchf" style="position: fixed; top: 50%; display:none;"
+                        onload="if(typeof sent_txlbrchf!='undefined')
+                        {enableOrcamento(); bootbox.alert('Obrigado pelo pedido de orçamento, entraremos em contacto consigo assim que nos for possível');}"></iframe>
 
-						<div style="float:inherit" class="col-sm-7">
-						<form id="cform" action="https://fwdform.herokuapp.com/user/d3c3c43c-e4e8-4cdd-b679-cd292beab030" method="POST" target="hiddenFrame">
-							<div class="row">
-							<div class="col-xs-6 col-md-6 form-group">
-							<input class="form-control" id="name" name="name" placeholder="Nome" type="text" required />
-							</div>
-							<div class="col-xs-6 col-md-6 form-group">
-							<input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
-							</div>
-							</div>
-							<textarea class="form-control" id="message" name="message" placeholder="Descrição do serviço a realizar" rows="7"></textarea>
-							<br />
-							<div class="row">
-							<div class="col-xs-12 col-md-12 form-group">
-							<button class="btn orcamentobtn pull-right" type="submit" onclick="warnit();">Pedir Orçamento</button>
-							</div>
-							</div>
-						</form>
-					</div>
+                        <div style="float:inherit" class="col-sm-7">
+                        <!-- main : e0e18663-4367-48ab-abf4-5dbe85d0a13a -->
+                        <!--d3c3c43c-e4e8-4cdd-b679-cd292beab030-->
+                        <form id="cform" action="https://fwdform.herokuapp.com/user/e0e18663-4367-48ab-abf4-5dbe85d0a13a" method="POST" target="iframe_txlbrchf" onsubmit="disableOrcamento();sent_txlbrchf=true">
+                            <div class="row">
+                            <div class="col-xs-6 col-md-6 form-group">
+                            <input class="form-control" id="name" name="name" placeholder="Nome" type="text" required />
+                            </div>
+                            <div class="col-xs-6 col-md-6 form-group">
+                            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+                            </div>
+                            </div>
+                            <textarea class="form-control" id="message" name="message" placeholder="Descrição do serviço a realizar" rows="7"></textarea>
+                            <br />
+                            <div class="row">
+                            <div class="col-xs-12 col-md-12 form-group">
+                            <input class="btn orcamentobtn pull-right" value="Pedir Orçamento" type="submit" onclick="warnit();">
+                            </div>
+                            </div>
+                        </form>
+                    </div>
 				</center>
 				<script type="text/javascript">
 				function warnit(){

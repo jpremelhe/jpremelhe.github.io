@@ -348,6 +348,7 @@ height: 80%;
 .modal-dialog {
 	width: 90%;
 	height: 50%;
+	z-index: 2000;
 }
 .modal-content {
 	top: 25%;
