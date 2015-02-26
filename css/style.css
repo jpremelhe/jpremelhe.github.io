@@ -97,7 +97,7 @@ border-color: #FB401C;
 }
 .galleria, .galleria2{ width: 100%; height: 450px; background: #000 }
 
-.thumbnail img {
+.thumbnail a img, .thumbnail img  {
 	height: 50px;
 	width: auto;
 }
