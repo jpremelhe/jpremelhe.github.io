@@ -167,6 +167,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					});
 jQuery(document).ready(function ($) {
+  setTimeout(function(){
   $('#slider ul').html('<li>\
                     <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />\
                   </li>\
@@ -229,7 +230,7 @@ jQuery(document).ready(function ($) {
     $('a.control_next').click(function () {
         moveRight();
     });
-
+  }, 3000);
 });
 
 					</script>
