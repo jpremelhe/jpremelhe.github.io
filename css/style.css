@@ -31,6 +31,69 @@ body.override {
 .produtoscontent .tab-pane .logoimg {
 	max-width: 100%; max-height: 100px;
 }
+.campanha{
+	width: 100%;
+	height: auto;
+}
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none !important;
+}
+
+#slider ul li {
+  list-style: none !important;
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: 20%;
+  height: 100%;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+}
+a.control_prev:hover, a.control_next:hover {
+  opacity: 0.7;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
 
 body a{
 	transition: 0.5s all;

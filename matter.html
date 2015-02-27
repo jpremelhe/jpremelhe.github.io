@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Remelhe Matters</title>
+<title>J.P. Remelhe - Remelhe Matters</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/dataTables.booststrap.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -61,6 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript" src="js/bootbox.min.js"></script>
+<script type="text/javascript" src="js/turn.min.js"></script>
 <script type="text/javascript">
 					function fadeItOut(){
 						$('#fader').fadeOut(2000);
@@ -163,7 +164,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						$('#orcamento').css('min-height', ($( window ).height()-70)+'px');
 						$('#contactos').css('min-height', ($( window ).height()-70)+'px');
 						fadeItOut();
+
 					});
+jQuery(document).ready(function ($) {
+  $('#slider ul li').css('width', $('#servicos .row').width()+'px');
+
+  $('#checkbox').change(function(){
+    setInterval(function () {
+        moveRight();
+    }, 3000);
+  });
+
+  var slideCount = $('#slider ul li').length;
+  var slideWidth = $('#slider ul li').width();
+  var slideHeight = $('#slider ul li').height();
+  var sliderUlWidth = slideCount * slideWidth;
+
+  $('#slider').css({ width: slideWidth, height: slideHeight });
+
+  $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveLeft() {
+        console.log('go left');
+        $('#slider ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider ul li:last-child').prependTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+              console.log('go right');
+
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+});
 
 					</script>
 					<!----start-top-nav-script---->
@@ -417,6 +469,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					  <!-- Tab panes -->
 					  <div class="tab-content produtoscontent">
 					    <div role="tabpanel" class="tab-pane active" id="ccivil">
+                <div class="row" style="overflow: auto">
+                </div>
+                <div id="slider">
+                  <a href="javascript: void(0);" class="control_next">Próxima página</a>
+                  <a href="javascript: void(0);" class="control_prev">Página Anterior</a>
+
+                  <ul>
+                  <li>
+                    <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />
+                  </li>
+                    <li>
+                      <img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL2.jpg" />
+                    </li>
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL3.jpg" /></li>
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL4.jpg" /></li>
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL5.jpg" /></li>
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL6.jpg" /></li>
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL7.jpg" /></li>
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL8.jpg" /></li>
+                  <li>
+                    <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />
+                  </li>
+                  </ul>
+                </div>
+
 					    </div>
 					    <div role="tabpanel" class="tab-pane" id="maq">
                             <div class="row">
