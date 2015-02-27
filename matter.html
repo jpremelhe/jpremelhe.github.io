@@ -167,6 +167,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					});
 jQuery(document).ready(function ($) {
+  $('#slider ul').html('<li>\
+                    <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />\
+                  </li>\
+                    <li>\
+                      <img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL2.jpg" />\
+                    </li>\
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL3.jpg" /></li>\
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL4.jpg" /></li>\
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL5.jpg" /></li>\
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL6.jpg" /></li>\
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL7.jpg" /></li>\
+                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL8.jpg" /></li>\
+                  <li>\
+                    <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />\
+                  </li>');
   $('#slider ul li').css('width', $('#servicos .row').width()+'px');
 
   $('#checkbox').change(function(){
@@ -180,7 +195,7 @@ jQuery(document).ready(function ($) {
   var slideHeight = $('#slider ul li').height();
   var sliderUlWidth = slideCount * slideWidth;
 
-  $('#slider').css({ width: slideWidth, height: slideHeight });
+  $('#slider').css({ width: slideWidth });
 
   $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
 
@@ -476,21 +491,7 @@ jQuery(document).ready(function ($) {
                   <a href="javascript: void(0);" class="control_prev">Página Anterior</a>
 
                   <ul>
-                  <li>
-                    <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />
-                  </li>
-                    <li>
-                      <img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL2.jpg" />
-                    </li>
-                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL3.jpg" /></li>
-                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL4.jpg" /></li>
-                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL5.jpg" /></li>
-                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL6.jpg" /></li>
-                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL7.jpg" /></li>
-                  <li><img class ="campanha" src="images/campanhas/marco_2015/2015_02_CAMPANHA_PASCOA_FOLHETO_FINAL8.jpg" /></li>
-                  <li>
-                    <img class ="campanha" src="images/campanhas/marco_2015/40128_J_P_REMELHE&FILHOS.jpg" />
-                  </li>
+
                   </ul>
                 </div>
 
