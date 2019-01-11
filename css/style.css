@@ -4,15 +4,80 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+.row_port {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+.port_link{
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.port_link img:hover {
+    opacity: 0.2;
+}
+
+.port_link img {
+    min-height: 193px;
+}
+
+.port_link .port_subtitle {
+    display:none;
+}
+
+.port_link:hover .port_subtitle {
+    top: 25%;
+    margin-left:20px;
+    margin-right: 20px;
+    position: absolute;
+    display: block;
+}
+
+/* Create four equal columns that sits next to each other */
+.column_port {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+      box-sizing: border-box;
+}
+
+.column_port img {
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column_port {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column_port {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
 body{
 	background-color: #272727;
-	background: url(../images/banner2.jpg) no-repeat center center fixed;
+	background: linear-gradient(141deg, #cdcdcd 0%, #ffffff 51%, #a7a7a7 75%); /*url(../images/banner2.jpg) no-repeat center center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 	display:block;
-	padding:5em 0;	font-family: 'Fjalla One', sans-serif;
+	padding:5em 0;	
+    font-family: 'Rubik', sans-serif;
 	min-width: 360px;
 }
 body.override {
@@ -150,7 +215,8 @@ border-color: #FB401C;
 .orcamentobtn, .btn-primary {
 	background-color: #FC431E;
 	border: 0;
-	font-family: 'Fjalla One', sans-serif;
+    font-family: 'Rubik', sans-serif;
+
 	text-transform:uppercase;
 
 }
@@ -158,7 +224,7 @@ border-color: #FB401C;
 	background-color: white;
 	color: #274CA6;
 }
-.galleria, .galleria2{ width: 100%; height: 450px; background: #000 }
+.galleria, .galleria2{ width: 100%; height: 600px; background: #000 }
 
 .thumbnail a img, .thumbnail img  {
 	height: 50px;
@@ -201,6 +267,10 @@ font-size: 50px;
 	display: block;
 	padding: 5em 0;
 	color: white;
+
+  background: #536976; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #536976, #292e49); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #536976, #292e49);
 }
 hiddenForm{
 	position: fixed;
@@ -259,8 +329,9 @@ hiddenForm{
 }
 
 .nav a {
-	background-color: rgb(252, 67, 30);
+	background-color: rgb(60, 60, 60);
 color: white;
+    text-transform:capitalize;
 }
 .imagem {
 	width: 300px;
@@ -343,7 +414,7 @@ height: 80%;
 }
 .carousel-caption h2{
 	color: white;
-	background-color: rgba(252, 67, 30, 0.49);
+	background-color: rgba(0, 0, 0, 0.49);
 	padding: 10px;
 
 }
@@ -374,7 +445,6 @@ height: 80%;
 #home {
 	width: 100%;
 	display:block;
-	padding:5em 0;
 }
 
 #home #hello {
@@ -387,6 +457,11 @@ height: 80%;
 	z-index:1000;
 	width: 100%;
 	box-shadow: 5px 0px 4px #888888;
+}
+.logo_matter {
+    border-left: 2px solid #e1e1e1;
+    margin-left: 10px;
+    padding-left: 10px;
 }
 .logo{
 	float: left;
@@ -713,15 +788,23 @@ ul.in-social li a span:hover{
 	/*background:#eee;*/
 	text-align:center;
 	padding:3em 0;
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .services-top h3,.services-grid h4{
 	margin:0;
 	font-size:2.3em;
 	color:white;
 }
-.services-top h3 span, #portfolio h3 span, #contactos h2 span, #orcamento h2 span{
+.services-top h3 span, #contactos h2 span, #orcamento h2 span{
 	border-bottom:3px solid #fff;
 	padding:7px 0;
+}
+#portfolio h3 span {
+ 	border-bottom:3px solid black;
+	padding:7px 0;   
 }
 .services-top p,.services-grid p{
 	margin:0 auto;
@@ -764,10 +847,9 @@ h5.happy  a:hover{
 	padding:5em 0;
 }
 .work h3{
-	color: white;
+	color: black;
 	margin:0;
 	font-size:2.3em;
-	color:white;
 	text-align:center;
 }
 .work-grid {
@@ -1755,3 +1837,5 @@ ul.social-ic-icons{
 	padding: 2em 0 0;
 }
 }
+
+

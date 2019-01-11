@@ -1,0 +1,279 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title><title>J.P. Remelhe - J.P. Remelhe e Filhos, Lda.</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/dataTables.booststrap.css" rel="stylesheet" type="text/css" media="all" />
+
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="pt-pt">
+<meta name="document-type" content="Web Page">
+<meta name="document-rating" content="general">
+<meta name="rating" content="general">
+<meta name="revisit-after" content="7 days">
+<meta name="distribution" content="global">
+
+<meta name="title" content="JPRemelhe - Empresa de Obras de Engenharia Civil e de Obras Públicas - Portugal">
+<meta name="author" content="JPRemelhe">
+<meta name="description" content="A J.P. Remelhe & Filhos, Lda. é uma empresa dedicada à execução de Obras de Engenharia Civil e de Obras Públicas. Tendo também uma loja de material de construção/drogaria.">
+<meta http-equiv="keywords" content="construção, material, obra, drogaria, reabilitação, remodelação, restauro, renovação, obras, públicas, civil, urbana, casas, imóveis, edifícios, habitações, moradias, apartamentos, escritórios, comércio, lojas, gabinetes, recuperação, jardins, espaços, públicos, pintura, reboco, fachadas, telhados, coberturas, betão, cimento, garagens, rede, água, electricidade, gás, cozinhas, banho, cafés, restaurantes, bares, restauração, salas">
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.js"></script>
+<script src="js/bootstrap-tabcollapse.js"></script>
+
+<link rel="stylesheet" href="galleria-classicmod/galleria.classicmod.css">
+<script src="galleria/galleria-1.4.2.min.js"></script>
+<script src="galleria-classicmod/galleria.classicmod.js"></script>
+<style>
+    #carousel-generico{
+    background-image: url('images/banner1.jpg');
+}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+<!--//fonts-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/bootbox.min.js"></script>
+
+<script type="text/javascript">
+					function fadeItOut(){
+						$('#fader').fadeOut(2000);
+					}
+					function fadeItOutFast(){
+						$('#fader').fadeOut('slow');
+					}
+					function fadeItIn(){
+						$('#fader').fadeTo( "slow" , 0.5, function() {
+    // Animation complete.
+  });
+					}
+                    function disableOrcamento(){
+                        $('#cform').find('.form-control').prop('disabled', true);
+                    }
+                    function enableOrcamento(){
+                        $('#cform').find('.form-control').val('');
+                        $('#cform').find('.form-control').prop('disabled', false);
+                    }
+                    function loadGaleria(){
+                        loadGallery2(window.location.search.substr(5));
+                    }
+					jQuery(document).ready(function($) {
+                            loadGaleria();
+							var imglist = [];
+							var carou = $('#carousel-generico');
+							imgs = carou.find('img').each(function(){
+
+							});
+							$.each(imgs, function( key, value ) {
+								//console.log($(value).attr('src'));
+							  imglist.push($(value).attr('src'));
+							});
+							//console.log(imglist);
+							var i=0;
+
+							setInterval(function(){
+									console.log('cai');
+					                carou.css({ 'background-image': 'url("'+imglist[i]+'")' });
+					                i++;
+					                if(i == imglist.length){
+					                	i = 0;
+					                }
+
+							}, 5000);
+
+							$('#lista_servicos').tabCollapse();
+							// Cache selectors
+							var lastId,
+							    topMenu = $(".top-nav"),
+							    topMenuHeight = topMenu.outerHeight()+100,
+							    // All list items
+							    menuItems = topMenu.find("a"),
+							    // Anchors corresponding to menu items
+							    scrollItems = menuItems.map(function(){
+							      var item = $($(this).attr("href"));
+							      if (item.length) { return item; }
+							    });
+
+							// Bind click handler to menu items
+							// so we can get a fancy scroll animation
+							menuItems.click(function(e){
+							  var href = $(this).attr("href"),
+							      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+							  $('html, body').stop().animate({
+							      scrollTop: offsetTop
+							  }, 300);
+							  e.preventDefault();
+							});
+
+							// Bind to scroll
+							$(window).scroll(function(){
+							   // Get container scroll position
+							   var fromTop = $(this).scrollTop()+topMenuHeight;
+
+							   // Get id of current scroll item
+							   var cur = scrollItems.map(function(){
+							     if ($(this).offset().top < fromTop)
+							       return this;
+							   });
+							   // Get the id of the current element
+							   cur = cur[cur.length-1];
+							   var id = cur && cur.length ? cur[0].id : "";
+
+							   if (lastId !== id) {
+							       lastId = id;
+							       // Set/remove active class
+							       menuItems
+							         .parent().removeClass("active")
+							         .end().filter("[href=#"+id+"]").parent().addClass("active");
+							   }
+							});
+
+						$(".scroll").click(function(event){
+							event.preventDefault();
+							fadeItIn();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top-70},1000);
+							fadeItOutFast();
+
+						});
+
+						$('#sobrenos > .container').css('min-height', ($( window ).height()-70)+'px');
+						$('#portfolio').css('min-height', ($( window ).height()-70)+'px');
+						$('#servicos').css('min-height', ($( window ).height()-70)+'px');
+						$('#orcamento').css('min-height', ($( window ).height()-70)+'px');
+						$('#contactos').css('min-height', ($( window ).height()-70)+'px');
+						fadeItOut();
+					});
+
+					</script>
+					<!----start-top-nav-script---->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('.top-nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+
+</head>
+<body>
+<div id="fader"></div>
+<!--header-->
+	<div class="header">
+			<div class="container">
+				<div class="logo">
+					<a href="index.html">
+						<img id="menume" title="Voltar ao inicio" height="67px" src="images/filhos.png" />
+					</a>
+				</div>
+                <div class="logo logo_matter">
+					<a href="matter.html">
+						<img id="menume" title="Voltar ao inicio"  height="67px" src="images/matters.png" />
+					</a>
+				</div>
+				<div class="top-nav">
+
+					<ul>
+						<li><a href="index.html#home" class="scroll">Apresentação</a></li>
+						<li><a href="index.html#servicos" class="scroll"> Serviços</a></li>
+						<li class="active" ><a href="index.html#portfolio" class="scroll">Portfolio</a></li>
+						<li><a href="index.html#orcamento" class="scroll">Orçamentos</a></li>
+						<li><a href="index.html#contactos" class="scroll">Contactos</a></li>
+					</ul>
+					<a href="#" id="pull"><img src="images/menu.png" title="menu" /></a>
+				</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	</div>
+	<!--content-->
+	<div class="content">
+	<!--about-->
+<script type="text/JavaScript">
+        Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+		function UrlExists(url)
+		{
+		    var http = new XMLHttpRequest();
+		    http.open('HEAD', url, false);
+		    http.send();
+		    return http.status!=404;
+		}
+      function loadGallery2(path){
+      	i=0;
+      	var images = "";
+      	while(true){
+      		i++;
+      			console.log('Getting picture '+i)
+      			if(UrlExists(path+i+'.jpg')){
+
+      				images += '<img src="'+path+i+'.jpg" />';
+      			} else {
+      				break;
+      			}
+      	}
+        var gal = Galleria.get(0);
+        if(gal){
+       		gal.destroy();
+        }
+		$('.galleria2').html(images);
+
+        Galleria.run('.galleria2', { debug: false });
+
+      }
+        </script>
+    <div class="galleria2">
+				</div>
+	<!--footer-->
+	<div class="footer">
+		<div class="container">
+				<div class="footer-class">
+				<div class="class-footer">
+					 <p class="footer-grid">&copy; 2015-2019 J.P. Remelhe </p>
+				</div>
+				<div class="clearfix"> </div>
+			 	</div>
+		 </div>
+
+	</div>
+
+</body>
+</html>
